@@ -1,0 +1,43 @@
+[alias]
+        br = branch
+        ci = commit
+        co = checkout
+        cp = cherry-pick
+        l = log --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        ln = log --pretty=format:'%Cblue%h %Cred* %C(yellow)%s'
+        pruneremote = remote prune origin
+        reset-authors = commit --amend --reset-author -CHEAD
+        ri = rebase --interactive
+        st = status
+        tr = log --graph --oneline --decorate --color
+        tree = log --graph --oneline --decorate --color --all
+        squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+        fixup = !sh -c 'git commit -m \"fixup! $(git log -1 --format='\\''%s'\\'' $@)\"' -
+        rmbranch = "!f(){ git branch -d ${1} && git push origin --delete ${1}; };f"
+        smoke = !"LAST_TAG=$(git describe --abbrev=0 --tags) && git log --pretty=format:\"%an: %s\" $LAST_TAG..head | sort | uniq"
+        snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
+        add-untracked = !"git status --porcelain | awk '/\\?\\?/{ print $2 }' | xargs git add"
+        unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
+        unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
+        wip = !"git add -A . && git status && git commit -am '@wip'"
+[branch]
+        autosetuprebase = always
+[color]
+        ui = auto
+[core]
+        excludesfile = ~/.gitignore
+        editor = vim
+        whitespace = warn
+[help]
+        autocorrect = 10
+[interactive]
+        singlekey = true
+[merge]
+        summary = true
+[push]
+        default = tracking
+[rebase]
+        autosquash = true
+[include]
+        path = ~/.gitconfig.local

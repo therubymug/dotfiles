@@ -1,0 +1,44 @@
+# shortcut to this dotfiles path is $DOTHOME
+export DOTHOME=$HOME/.dotfiles
+
+# source folder that we can `scd [tab]` into
+export SOURCE_DIR=$HOME/src
+
+# all of our zsh files
+typeset -U config_files
+config_files=($DOTHOME/**/*.zsh)
+
+# load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
+# load everything but the path and completion files
+for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+do
+  source $file
+done
+
+# initialize autocomplete here, otherwise functions won't be loaded
+autoload -U compinit
+compinit
+
+# load every completion after autocomplete loads
+for file in ${(M)config_files:#*/completion.zsh}
+do
+  source $file
+done
+
+unset config_files
+
+# set cd autocompletion to commonly visited directories
+cdpath=(. ~ ~/src $SOURCE_DIR)
+
+# chruby!
+[[ ! -a /usr/local/opt/chruby/share/chruby/chruby.sh ]] || source /usr/local/opt/chruby/share/chruby/chruby.sh
+[[ ! -a /usr/local/opt/chruby/share/chruby/auto.sh ]] || source /usr/local/opt/chruby/share/chruby/auto.sh
+
+# import local zsh customizations, if present
+zrcl="$HOME/.zshrc.local"
+[[ ! -a $zrcl ]] || source $zrcl
