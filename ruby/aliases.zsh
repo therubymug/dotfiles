@@ -1,3 +1,2 @@
-alias sc='script/console'
-alias sg='script/generate'
-alias sd='script/destroy'
+alias sc='bundle exec rails console'
+alias ss='bundle exec rails server'
