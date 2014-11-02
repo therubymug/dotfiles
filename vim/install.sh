@@ -48,7 +48,6 @@ get_bundle tpope vim-surround
 get_bundle tpope vim-tbone
 get_bundle tpope vim-unimpaired
 get_bundle tpope vim-vividchalk
-get_bundle vim-scripts bufexplorer.zip
 get_bundle vim-scripts bufkill.vim
 
 vim -c 'call pathogen#helptags()|q'
