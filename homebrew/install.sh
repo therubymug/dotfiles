@@ -24,7 +24,7 @@ for brew in ${BREWS[@]}; do
   fi
 done
 
-brew upgrade
+brew upgrade --all
 brew cleanup
 brew prune
 
