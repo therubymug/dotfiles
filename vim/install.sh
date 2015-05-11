@@ -15,6 +15,7 @@ get_bundle() {
 }
 
 get_bundle duff vim-bufonly
+get_bundle elzr vim-json
 get_bundle godlygeek tabular
 get_bundle jgdavey tslime.vim
 get_bundle jgdavey vim-blockle
