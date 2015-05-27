@@ -187,7 +187,7 @@ augroup organization
 
   autocmd Syntax   css  syn sync minlines=50
 
-  autocmd FileType ruby nmap <buffer> <leader>bt <Plug>BlockToggle
+  autocmd FileType ruby nmap <buffer> <leader>b <Plug>BlockToggle
   autocmd BufRead *_spec.rb nmap <buffer> <leader>l :<C-U>call <SID>ExtractIntoRspecLet()<CR>
 
   autocmd User Rails nnoremap <buffer> <D-r> :<C-U>Rake<CR>
