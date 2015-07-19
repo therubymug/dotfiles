@@ -6,15 +6,22 @@
 # to make sure you're on the latest and greatest.
 export DOTHOME=$HOME/.dotfiles
 
-echo ''
-# Set OS X defaults
-$DOTHOME/osx/set-defaults.sh
-
-# Upgrade homebrew
-brew update
-
-# Install homebrew packages
-$DOTHOME/homebrew/install.sh 2>&1
+DISTRO=$(uname)
+case $DISTRO in
+  'Linux')
+    sudo apt-get update
+    sudo apt-get -y -q upgrade
+    ;;
+  'Darwin')
+    # Set OS X defaults
+    $DOTHOME/osx/set-defaults.sh
+    # Install/upgrade homebrew packages
+    $DOTHOME/homebrew/install.sh 2>&1
+    ;;
+  *)
+    echo "Good luck with that"
+    ;;
+esac
 
 # Install vim bundles
 $DOTHOME/vim/install.sh 2>&1
