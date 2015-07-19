@@ -81,3 +81,6 @@ alias gds='git diff --staged --no-ext-diff'
 alias gnap='git add -N . && git add -p'
 alias gpr='git pull --rebase --prune'
 alias gst='git status'
+if command -v hub >/dev/null; then
+  $(hub alias -s)
+fi
