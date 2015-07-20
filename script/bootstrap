@@ -7,7 +7,7 @@ DOTFILES_ROOT=$(pwd)
 
 set -e
 
-echo ''
+echo
 
 info () {
   printf "  [ \033[00;34m..\033[0m ] $1"
@@ -23,7 +23,7 @@ success () {
 
 fail () {
   printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
-  echo ''
+  echo
   exit
 }
 
@@ -130,10 +130,15 @@ install_dotfiles () {
   done
 }
 
-setup_gitconfig_local
+
+fd=0 # stdin
+# Set up gitconfig.local only in an interactive shell
+if [[ -t "$fd" || -p /dev/stdin ]]; then
+  setup_gitconfig_local
+fi
+
 install_dotfiles
 
-# If we're on a Mac, let's install and setup homebrew.
 if [ "$(uname -s)" == "Darwin" ]
 then
   info "installing dependencies"
@@ -145,5 +150,5 @@ then
   fi
 fi
 
-echo ''
+echo
 echo '  All installed!'
