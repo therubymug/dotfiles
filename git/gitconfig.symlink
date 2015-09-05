@@ -20,7 +20,7 @@
         add-untracked = !"git status --porcelain | awk '/\\?\\?/{ print $2 }' | xargs git add"
         unpulled = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git fetch && git log HEAD..origin/$PROJ_BRANCH"
         unpushed = !"PROJ_BRANCH=$(git symbolic-ref HEAD | sed 's|refs/heads/||') && git log origin/$PROJ_BRANCH..HEAD"
-	wip = "!sh -c 'git add -A . && git status && git commit -m \"@wip [ci skip] $1\"' -"
+        wip = "!sh -c 'git add -A . && git status && git commit -m \"@wip [ci skip] $1\"' -"
 [branch]
         autosetuprebase = always
 [color]
@@ -32,7 +32,7 @@
 [help]
         autocorrect = 10
 [interactive]
-        singlekey = true
+        singleKey = true
 [merge]
         summary = true
 [push]
