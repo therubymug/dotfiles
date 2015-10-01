@@ -32,6 +32,9 @@ done
 
 unset config_files
 
+# I want to use [ and ] damn it!
+unsetopt nomatch
+
 # set cd autocompletion to commonly visited directories
 cdpath=(. ~ ~/src $SOURCE_DIR)
 
