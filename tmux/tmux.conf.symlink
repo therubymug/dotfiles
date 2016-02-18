@@ -15,6 +15,9 @@ bind k select-pane -U
 bind l select-pane -R
 bind ` select-window -t 0
 
+bind = select-layout even-horizontal
+bind - select-layout even-vertical
+
 set-option -g terminal-overrides 'xterm*:XT:Ms=\E]52;%p1%s;%p2%s\007:Cc=\E]12;%p1%s\007:Cr=\E]112\007:Cs=\E]50;CursorShape=%?%p1%{3}%<%t%{0}%e%p1%{2}%-%;%d\007'
 
 # Use up and down arrows for temporary "maximize"
@@ -25,8 +28,8 @@ unbind Down
 bind Down resize-pane -Z
 
 # Allows scrolling and selecting in copy-mode
-set -g mode-mouse on
-set -g mouse-select-pane on
+set -g mouse-utf8 on
+set -g mouse on
 
 # Don't delay forever on escape!
 set -sg escape-time 0

@@ -14,9 +14,9 @@ case $DISTRO in
     ;;
   'Darwin')
     # Set OS X defaults
-    $DOTHOME/osx/set-defaults.sh
+    sh $DOTHOME/osx/set-defaults.sh
     # Install/upgrade homebrew packages
-    $DOTHOME/homebrew/install.sh 2>&1
+    sh $DOTHOME/homebrew/install.sh 2>&1
     ;;
   *)
     echo "Good luck with that"

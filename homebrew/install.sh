@@ -14,18 +14,20 @@ then
   ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" > /tmp/homebrew-install.log
 fi
 
+${BREW_COMMAND} update
+
 # Install homebrew 'essential' packages
 BREWS=(ack ctags-exuberant chruby macvim markdown proctools redis ruby-install the_silver_searcher tmux wget)
 for brew in ${BREWS[@]}; do
-  $BREW_COMMAND list $brew > /dev/null 2>&1
+  ${BREW_COMMAND} list $brew > /dev/null 2>&1
   if [[ "$?" -eq "1" ]]; then
     echo "Installing $brew"
-    brew install $brew
+    ${BREW_COMMAND} install $brew
   fi
 done
 
-brew upgrade --all
-brew cleanup
-brew prune
+${BREW_COMMAND} upgrade --all
+${BREW_COMMAND} cleanup
+${BREW_COMMAND} prune
 
 exit 0

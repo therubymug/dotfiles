@@ -10,6 +10,7 @@
         reset-authors = commit --amend --reset-author -CHEAD
         ri = rebase --interactive
         st = status
+        pr = pull-request
         tr = log --graph --oneline --decorate --color
         tree = log --graph --oneline --decorate --color --all
         squash = !sh -c 'git commit -m \"squash! $(git log -1 --format='\\''%s'\\'' $@)\"' -
@@ -39,5 +40,7 @@
         default = tracking
 [rebase]
         autosquash = true
+[web]
+	browser = open
 [include]
         path = ~/.gitconfig.local
