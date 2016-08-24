@@ -181,10 +181,10 @@ merge() {
 
 NCPU=$([[ $(uname) = 'Darwin' ]] && sysctl -n hw.ncpu || nproc --all)
 alias gap="git add -p"
-alias gnap="git add -N . && git add -p"
 alias gc="git commit -vS"
 alias gd="git diff --no-ext-diff"
 alias gdc="gds"
 alias gds="git diff --staged --no-ext-diff"
+alias gnap="git add -N . && git add -p"
 alias gpr="git pull --rebase --prune --jobs=${NCPU}"
 alias gst="git status"
