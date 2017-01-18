@@ -17,6 +17,7 @@ get_bundle() {
 get_bundle duff vim-bufonly
 get_bundle elzr vim-json
 get_bundle godlygeek tabular
+get_bundle hashivim vim-terraform
 get_bundle jgdavey tslime.vim
 get_bundle jgdavey vim-blockle
 get_bundle jgdavey vim-turbux
@@ -41,8 +42,8 @@ get_bundle tpope vim-ragtag
 get_bundle tpope vim-rails
 get_bundle tpope vim-rake
 get_bundle tpope vim-repeat
-get_bundle tpope vim-rsi
 get_bundle tpope vim-rhubarb
+get_bundle tpope vim-rsi
 get_bundle tpope vim-sensible
 get_bundle tpope vim-sleuth
 get_bundle tpope vim-speeddating
