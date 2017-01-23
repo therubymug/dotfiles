@@ -95,7 +95,9 @@ defaults write com.apple.universalaccess closeViewZoomFollowsFocus -bool true
 defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false
 
 # Set a blazingly fast keyboard repeat rate
-defaults write NSGlobalDomain KeyRepeat -int 0
+defaults write NSGlobalDomain ApplePressAndHoldEnabled -bool false;
+defaults write -g InitialKeyRepeat -int 15; # Anything lower than 15 seems too fast.
+defaults write -g KeyRepeat -int 2; # You can go as low as 1, but that's too darn fast for me.
 
 # Automatically illuminate built-in MacBook keyboard in low light
 defaults write com.apple.BezelServices kDim -bool true
