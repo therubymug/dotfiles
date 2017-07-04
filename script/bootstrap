@@ -123,11 +123,27 @@ install_dotfiles () {
 
   local overwrite_all=false backup_all=false skip_all=false
 
-  for src in $(find "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink')
+  for src in $(find -H "$DOTFILES_ROOT" -maxdepth 2 -name '*.symlink' -not -path '*.git*')
   do
     dst="$HOME/.$(basename "${src%.*}")"
     link_file "$src" "$dst"
   done
+}
+
+install_compiler_deps() {
+  DISTRO=$(uname -s)
+  case $DISTRO in
+    'Linux')
+      info 'installing compiler dependencies'
+      sudo apt update &> /dev/null
+      sudo apt install -yq libevent-dev autoconf automake pkg-config build-essential vim libevent-dev curses-dev silversearcher-ag
+      ;;
+    'Darwin')
+      ;;
+    *)
+      echo "Good luck with that"
+      ;;
+  esac
 }
 
 
@@ -137,10 +153,11 @@ if [[ -t "$fd" || -p /dev/stdin ]]; then
   setup_gitconfig_local
 fi
 
+install_compiler_deps
 install_dotfiles
 
 info "installing dependencies"
-if source bin/dot > /tmp/dotfiles-dot 2>&1
+if source bin/dot | while read -r data; do info "$data"; done
 then
   success "dependencies installed"
 else
@@ -149,3 +166,4 @@ fi
 
 echo
 echo '  All installed!'
+
