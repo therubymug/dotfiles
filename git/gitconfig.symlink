@@ -3,7 +3,7 @@
         ci = commit
         co = checkout
         cp = cherry-pick
-        l = log --color --graph --pretty=format:'%Cred%h%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+        l  = log --color --graph --date=short --pretty=format:'%C(yellow)%h%Creset %Cgreen(%cd)%Creset%C(yellow)%d%Creset %s %C(bold blue)<%an>%Creset' --abbrev-commit
         lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
         ln = log --pretty=format:'%Cblue%h %Cred* %C(yellow)%s'
         pruneremote = remote prune origin
