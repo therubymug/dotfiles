@@ -46,8 +46,8 @@ cdpath=(. ~ ~/src $SOURCE_DIR)
 [[ ! -a /usr/local/share/chruby/chruby.sh ]] || source /usr/local/share/chruby/chruby.sh
 [[ ! -a /usr/local/share/chruby/auto.sh ]] || source /usr/local/share/chruby/auto.sh
 
-[[ ! -a $zrcl ]] || source $zrcl
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 # import local zsh customizations, if present
 zrcl="$HOME/.zshrc.local"
+
+[[ ! -a $zrcl ]] || source $zrcl
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
