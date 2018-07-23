@@ -26,3 +26,4 @@ tmp
 .eslintignore
 .eslintrc
 .rubocop.yml
+*terraform.tfstate.backup

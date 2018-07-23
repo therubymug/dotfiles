@@ -173,10 +173,10 @@ merge() {
     esac
   fi
 
-  git push origin master
-  git checkout master
-  git push origin --delete ${branch}
-  git branch -D ${branch}
+  git push origin master && \
+    git checkout master && \
+    git push origin --delete ${branch} && \
+    git branch -D ${branch}
 }
 
 NCPU=$([[ $(uname) = 'Darwin' ]] && sysctl -n hw.ncpu || nproc --all)
