@@ -45,5 +45,3 @@ br = branch
 	browser = open
 [include]
         path = ~/.gitconfig.local
-; [gpg]
-; 	program = gpg
